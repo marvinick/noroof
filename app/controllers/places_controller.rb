@@ -29,6 +29,7 @@ class PlacesController < ApplicationController
 			flash[:notice] = "Place has been updated."
 			redirect_to place_path 
 		else
+			flash.now[:alert] = "Place has not been updated."
 			render :edit
 		end
 	end
