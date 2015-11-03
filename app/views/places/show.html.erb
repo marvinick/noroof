@@ -1,2 +1,3 @@
 <%= @place.name %>
 <%= link_to "Edit Place", edit_place_path(@place) %>
+<%= link_to "Delete Place", place_path(@place), method: :delete, data: { confirm: "Are you sure?" } %>

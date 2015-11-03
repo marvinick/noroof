@@ -34,6 +34,12 @@ class PlacesController < ApplicationController
 		end
 	end
 
+	def destroy
+		@place.destroy
+		flash[:notice] = "Place has been deleted."
+		redirect_to places_path
+	end
+ 
 	private 
 
 	def set_place 
