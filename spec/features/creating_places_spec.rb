@@ -7,8 +7,8 @@ RSpec.feature "Users can create new place" do
 		click_link "New Place"
 
 		fill_in "Name", with: "Powell"
-		fill_in "Address", with: "On Burnside"
-		fill_in "Event", with: "Homeless gathering"
+		fill_in "Description", with: "On Burnside"
+		fill_in "Content", with: "Homeless gathering"
 		click_button "Create Place"
 
 		expect(page).to have_content "A Place has been created."
