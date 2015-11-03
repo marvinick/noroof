@@ -1,1 +1,6 @@
 <%= link_to "New Place", new_place_path(@place) %>
+
+<div id="places">
+<% @places.each do |place| %>
+	<%= link_to place.name, place %>
+<% end %> 
