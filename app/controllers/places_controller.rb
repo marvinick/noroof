@@ -22,6 +22,17 @@ class PlacesController < ApplicationController
 
 	def show; end 
 
+	def edit; end
+
+	def update 
+		if @place.update(place_params)
+			flash[:notice] = "Place has been updated."
+			redirect_to place_path 
+		else
+			render :edit
+		end
+	end
+
 	private 
 
 	def set_place 
