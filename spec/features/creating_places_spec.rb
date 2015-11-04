@@ -1,7 +1,12 @@
 require "rails_helper"
 
 RSpec.feature "Users can create new place" do 
-	scenario "with valid attributes" do 
+	let!(:user) { FactoryGirl.create(:user)}
+
+	scenario "with valid attributes" do  
+			
+		login_as(user)
+
 		visit "/"
 
 		click_link "New Place"
@@ -11,6 +16,7 @@ RSpec.feature "Users can create new place" do
 		fill_in "Content", with: "Homeless gathering"
 		click_button "Create Place"
 
-		expect(page).to have_content "A Place has been created."
+		expect(page).to have_content "A Place has been created." 
+		expect(page).to have_content "Creator: #{user.email}"
 	end
 end

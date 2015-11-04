@@ -11,10 +11,11 @@ class PlacesController < ApplicationController
 
 	def create 
 		@place = Place.new(place_params)
+		@place.creator = current_user
 
 		if @place.save 
 			flash[:notice] = "A Place has been created."
-			redirect_to places_path
+			redirect_to place_path(@place)
 		else
 			render :new
 		end

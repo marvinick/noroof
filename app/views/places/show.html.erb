@@ -1,3 +1,5 @@
 <%= @place.name %>
+<h5>Creator:</h5> <%= @place.creator.email %>
+<%= time_ago_in_words(@place.created_at) %> ago 
 <%= link_to "Edit Place", edit_place_path(@place) %>
 <%= link_to "Delete Place", place_path(@place), method: :delete, data: { confirm: "Are you sure?" } %>
